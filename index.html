@@ -1,27 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Button State Example</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="text/babel"> 
+    <script type="text/babel">
+      function Header() {
+        return (
+          <header>
+            <div className="contenedor">
+              <div className="barra">
+                <img src="img/titleGF.webp" alt="Logo" />
+              </div>
+            </div>
+          </header>
+        );
+      }
 
-    const App = () => {
-      return (
-        <div>
-            <h1>Hola mundo</h1>
-        </div>
-      )
-    }
+      function Home() {
+        return (
+          <div className="contenedor-contenido">
+            <div className="contenido">
+              <ul>
+                <li>Titulo</li>
+                <li>contenido</li>
+                <li>creado</li>
+              </ul>
+            </div>
+          </div>
+        );
+      }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'))
-    root.render(<App />)
+      function Footer() {
+        return (
+          <footer class="footer">
+            <div class="contenedor">
+              <div class="barra">
+                <p>Todos los derechos reservados 2024</p>
+              </div>
+            </div>
+          </footer>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(
+        <>
+          <Header />
+          <Home />
+          <Footer />
+        </>
+      );
     </script>
-</body>
+  </body>
 </html>
