@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    background-attachment: fixed;
 }
 
 img {
@@ -39,8 +40,25 @@ ul {
     list-style: none;
 }
 
-.contenedor-contenido {
-    display: flex;
-    align-items: center;
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.entrada {
+    border-bottom: 1px solid white;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.entrada:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+.no-margin {
+    margin: 0;
 }
 
