@@ -7,7 +7,16 @@ body {
 }
 
 img {
-    width: 700px;
+    max-width: 100%; 
+    height: auto; 
+}
+
+@media (min-width: 768px) {
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .contenedor {
@@ -56,9 +65,28 @@ ul {
 .entrada:last-of-type {
     border-bottom: none;
     margin-bottom: 0;
-  }
+}
 
 .no-margin {
     margin: 0;
 }
 
+.footer {
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    background-color: blueviolet;
+    padding: 1rem; 
+    text-align: center; 
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 2rem; 
+    }
+}
+
+.titulo {
+    color: white;
+}
