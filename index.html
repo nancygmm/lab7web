@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Button State Example</title>
+    <title>Blog Gravity Falls</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -12,6 +12,8 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      const { useState, useEffect } = React;
+
       const Api = async () => {
         try {
           const info = await fetch("http://localhost:3000/posts");
@@ -72,18 +74,32 @@
         );
       }
 
-      const root = ReactDOM.createRoot(document.getElementById("root"));
+      function App() {
+        const [posts, setPosts] = useState([]);
 
-      (async () => {
-        const resultado = await Api();
-        root.render(
+        useEffect(() => {
+          const fetchPosts = async () => {
+            try {
+              const info = await fetch("http://localhost:3000/posts");
+              const info_json = await info.json();
+              setPosts(info_json);
+            } catch (error) {
+              console.error("Error fetching posts:", error);
+            }
+          };
+
+          fetchPosts();
+        }, []); 
+        return (
           <>
             <Header />
-            <Home posts={resultado} />
+            <Home posts={posts} />
             <Footer />
           </>
         );
-      })();
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
 </html>
